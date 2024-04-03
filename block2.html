@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+   <link rel="stylesheet" href="block2.css">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+   <script src="block2.json"></script>
+</head>
+<body>
+   <a href="index.html" style="position: absolute; top: 10px; left: 10px; font-size: 20px; color: hsl(51, 100%, 34%);">&#8592;Back</a>
+    <h2 style="color: hsl(51, 97%, 24%)">Опитування</h2>
+    <br>
+    <form action="index.html" method="post">
+        <ol>
+            <li>
+                <label for="q1">Як Вам наші послуги?</label><br>
+                <br>
+                <input type="range" id="q1" name="q1" min="1" max="10">
+            </li>
+
+            <li>
+                <label for="q2">Вкажіть вашу дату народження:</label><br>
+            <br><input type="date" id="q2" name="q2">
+            </li>
+
+            <li>
+                <label for="q3">Скільки країн Ви відвідали?</label><br>
+                <br>
+                <input type="number" id="q3" name="q3" min="0" max="100">
+            </li>
+            <li>
+                <label for="q4">Напишіть Ваші зауваження до обслуговування</label><br>
+                <br>
+                <textarea id="q4" name="q4" rows="4" cols="50"></textarea>
+            </li>
+            <li>
+                <label for="q5">Який ваш улюблений продукт серед наших?</label><br>
+                <br>
+                <select id="q5" name="q5">
+                    <option value="product1">Продукт 1</option>
+                    <option value="product2">Продукт 2</option>
+                    <option value="product3">Продукт 3</option>
+                    <option value="other">Інше</option>
+                </select>
+            </li>
+            <li>
+                <fieldset>
+                    <legend>Яка ваша стать?</legend><br>
+                    <input type="radio" id="male" name="gender" value="male">
+                    <label for="male">Чоловіча</label><br>
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">Жіноча</label><br>
+                    <input type="radio" id="other_gender" name="gender" value="other">
+                    <label for="other_gender">Інша</label>
+                </fieldset>
+            </li>
+            <li>
+                <label for="q7">Чи порекомендували б ви наші продукти своїм друзям?</label><br>
+                <br>
+                <input type="checkbox" id="recommendation" name="recommendation">
+                <label for="recommendation">Так</label><br>
+            </li>
+            <li>
+                <label for="q8">Яку оцінку ви поставили б нашому сервісу (від 1 до 5)?</label><br>
+                <br>
+                <input type="number" id="q8" name="q8" min="1" max="5">
+            </li>
+            <li>
+                <label for="q9">Який ваш email (необов'язково)?</label><br>
+                <br>
+                <input type="email" id="q9" name="q9">
+            </li>
+            <li>
+                <label for="q10">Залиште свої додаткові коментарі або пропозиції:</label><br>
+                <br>
+                <input type="text" id="q10" name="q10">
+            </li>
+        </ol>
+        <button type="submit">Надіслати</button>
+    </form>
+    <div id="filterButtons">
+        <button id="filterByAgeButton">Фільтр за віком 18 років</button>
+        <button id="filterByGenderButton">Фільтр за жіночою статтю</button>
+        <button id="filterByRatingButton">Фільтр за оцінкою 5 балів</button>
+    </div>
+    <div id="filterResults"></div>
+
+
+<a href="index.html" style="position: absolute; top: 10px; left: 10px; font-size: 20px; color: hsl(51, 100%, 34%);">&#8592;Back</a>
+<div id="test-container">
+    <h1>Тест про нашу агенцію</h1>
+    <div id="questions-container"></div>
+    <button id="submit-btn">Перевірити результат</button>
+    <div id="result"></div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const testData = {
+    testName: "Тест про нашу агенцію",
+    questions: [
+      {
+        question: "В якому році Ви вперше відвідвли іншу країну?",
+        answers: [
+          { answer: "1837", isCorrect: true },
+          { answer: "1900", isCorrect: false },
+          { answer: "2001", isCorrect: false },
+          { answer: "2019", isCorrect: false }
+        ]
+      },
+      {
+        question: "Які види активного відпочинку ви вважаєте найцікавішими під час подорожі?",
+        answers: [
+          { answer: "Піші прогулянки та велопрогулянки", isCorrect: true },
+          { answer: "Водні види спорту", isCorrect: false },
+          { answer: "Гірські вишини", isCorrect: false },
+          { answer: "Екскурсії та культурні заходи", isCorrect: false }
+        ]
+      },
+      {
+        question: "Які місця ви порекомендували б своїм друзям для відвідування?",
+        answers: [
+          { answer: "Мачу-Пікчу, Перу", isCorrect: false },
+          { answer: "Санторіні, Греція", isCorrect: false },
+          { answer: "Кападокія, Туреччина", isCorrect: false },
+          { answer: "Мачу-Пікчу, Італія", isCorrect: true }
+        ]
+      },
+      {
+        question: "Яке місто відоме як Місто кохання",
+        answers: [
+          { answer: "Париж", isCorrect: true },
+          { answer: "Рим", isCorrect: false },
+          { answer: "Венеція", isCorrect: false },
+          { answer: "Прага", isCorrect: false }
+        ]
+      },
+      {
+        question: "Яке озеро є найбільшим за площею у світі?",
+        answers: [
+          { answer: "Каспійське море", isCorrect: false },
+          { answer: "Велике солоне озеро", isCorrect: false },
+          { answer: "Байкал", isCorrect: true },
+          { answer: "Озеро Вікторія", isCorrect: false }
+        ]
+      }
+    ]
+  };
+
+  const questionsContainer = document.getElementById('questions-container');
+  const submitButton = document.getElementById('submit-btn');
+  const resultDisplay = document.getElementById('result');
+
+  // Функція для відображення питань та варіантів відповідей
+  function renderQuestions() {
+    testData.questions.forEach((question, index) => {
+      const questionDiv = document.createElement('div');
+      questionDiv.classList.add('question');
+      questionDiv.innerHTML = `<p>${index + 1}. ${question.question}</p>`;
+      question.answers.forEach((answer, answerIndex) => {
+        const answerInput = document.createElement('input');
+        answerInput.type = 'radio';
+        answerInput.name = `question-${index}`;
+        answerInput.value = answerIndex; // встановлюємо значення як індекс відповіді
+        questionDiv.appendChild(answerInput);
+        const answerLabel = document.createElement('label');
+        answerLabel.classList.add('answer');
+        answerLabel.textContent = answer.answer;
+        questionDiv.appendChild(answerLabel);
+        questionDiv.appendChild(document.createElement('br'));
+      });
+      questionsContainer.appendChild(questionDiv);
+    });
+  }
+
+  // Функція для перевірки відповідей та відображення результату
+  function checkAnswers() {
+    const userAnswers = [];
+    testData.questions.forEach((question, index) => {
+      const selectedAnswer = document.querySelector(`input[name="question-${index}"]:checked`);
+      if (selectedAnswer) {
+        userAnswers.push(selectedAnswer.value);
+        const isCorrect = question.answers[selectedAnswer.value].isCorrect;
+        if (isCorrect) {
+          selectedAnswer.nextElementSibling.classList.add('correct'); // підсвічуємо наступний елемент після вибраної відповіді
+        } else {
+          selectedAnswer.nextElementSibling.classList.add('incorrect'); // підсвічуємо наступний елемент після вибраної відповіді
+        }
+      } else {
+        userAnswers.push(null);
+      }
+    });
+    const correctAnswers = testData.questions.map(question => {
+      return question.answers.findIndex(answer => answer.isCorrect);
+    });
+    let correctCount = 0;
+    userAnswers.forEach((answer, index) => {
+      if (answer === correctAnswers[index].toString()) {
+        correctCount++;
+      }
+    });
+    const percentage = (correctCount / testData.questions.length) * 100;
+    resultDisplay.textContent = `Ваш результат: ${correctCount} правильних відповідей з ${testData.questions.length} (${percentage}%)`;
+  }
+
+  renderQuestions();
+
+  submitButton.addEventListener('click', checkAnswers);
+});
+
+
+
+//гра
+</script>
+<div id="button-container">
+<button id="startGame">Start Game</button>
+</div>
+<div id="highScores">
+    <h2>High Scores</h2>
+    <ol id="highScoreList"></ol>
+</div>
+<div id="lowScores">
+    <h2>Low Scores</h2>
+    <ol id="lowScoreList"></ol>
+</div>
+<canvas id="gameCanvas" width="480" height="320"></canvas>
+<script>
+    var canvas = document.getElementById("gameCanvas");
+    var ctx = canvas.getContext("2d");
+
+    var ballRadius = 10;
+    var x = canvas.width / 2;
+    var y = canvas.height - 30;
+    var dx = 2;
+    var dy = -2;
+
+    var paddleHeight = 10;
+    var paddleWidth = 75;
+    var paddleX = (canvas.width - paddleWidth) / 2;
+
+    var obstacleWidth = 50;
+    var obstacleHeight = 10;
+    var obstacleX = (canvas.width - obstacleWidth) / 2;
+    var obstacleY = 30;
+
+    var rightPressed = false;
+    var leftPressed = false;
+
+    var score = 0;
+
+    var highScores = [];
+    var lowScores = [];
+
+    document.addEventListener("keydown", keyDownHandler, false);
+    document.addEventListener("keyup", keyUpHandler, false);
+
+    document.getElementById("startGame").addEventListener("click", startGame);
+
+    function keyDownHandler(e) {
+        if (e.key == "Right" || e.key == "ArrowRight") {
+            rightPressed = true;
+        } else if (e.key == "Left" || e.key == "ArrowLeft") {
+            leftPressed = true;
+        }
+    }
+
+    function keyUpHandler(e) {
+        if (e.key == "Right" || e.key == "ArrowRight") {
+            rightPressed = false;
+        } else if (e.key == "Left" || e.key == "ArrowLeft") {
+            leftPressed = false;
+        }
+    }
+
+    function startGame() {
+        resetGame();
+        draw();
+    }
+
+    function resetGame() {
+        score = 0;
+        x = canvas.width / 2;
+        y = canvas.height - 30;
+        paddleX = (canvas.width - paddleWidth) / 2;
+        obstacleX = (canvas.width - obstacleWidth) / 2;
+    }
+
+    function drawBall() {
+        ctx.beginPath();
+        ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
+        ctx.fillStyle = "#000";
+        ctx.fill();
+        ctx.closePath();
+    }
+
+    function drawPaddle() {
+        ctx.beginPath();
+        ctx.rect(paddleX, canvas.height - paddleHeight, paddleWidth, paddleHeight);
+        ctx.fillStyle = "#000";
+        ctx.fill();
+        ctx.closePath();
+    }
+
+    function drawObstacle() {
+        ctx.beginPath();
+        ctx.rect(obstacleX, obstacleY, obstacleWidth, obstacleHeight);
+        ctx.fillStyle = "#ad930099";
+        ctx.fill();
+        ctx.closePath();
+    }
+
+    function collisionDetection() {
+        if (x > paddleX && x < paddleX + paddleWidth && y + dy > canvas.height - paddleHeight - ballRadius) {
+            dy = -dy;
+            score++;
+        }
+        if (x > obstacleX && x < obstacleX + obstacleWidth && y + dy < obstacleY + obstacleHeight && y + dy > obstacleY) {
+            dy = -dy;
+            score += 5;
+        }
+    }
+
+    function drawScore() {
+        ctx.font = "16px Arial";
+        ctx.fillStyle = "#000";
+        ctx.fillText("Score: " + score, 8, 20);
+    }
+
+    function updateHighScoreList() {
+        var highScoreList = document.getElementById("highScoreList");
+        highScoreList.innerHTML = "";
+        highScores.sort((a, b) => b - a);
+        highScores.slice(0, 3).forEach((score, index) => {
+            var li = document.createElement("li");
+            li.textContent = score;
+            highScoreList.appendChild(li);
+        });
+    }
+
+    function updateLowScoreList() {
+        var lowScoreList = document.getElementById("lowScoreList");
+        lowScoreList.innerHTML = "";
+        lowScores.sort((a, b) => a - b);
+        lowScores.slice(0, 3).forEach((score, index) => {
+            var li = document.createElement("li");
+            li.textContent = score;
+            lowScoreList.appendChild(li);
+        });
+    }
+
+    function saveScores() {
+        localStorage.setItem("highScores", JSON.stringify(highScores));
+        localStorage.setItem("lowScores", JSON.stringify(lowScores));
+    }
+
+    function loadScores() {
+        if (localStorage.getItem("highScores")) {
+            highScores = JSON.parse(localStorage.getItem("highScores"));
+            updateHighScoreList();
+        }
+        if (localStorage.getItem("lowScores")) {
+            lowScores = JSON.parse(localStorage.getItem("lowScores"));
+            updateLowScoreList();
+        }
+    }
+
+    function gameOver() {
+    highScores.push(score);
+    lowScores.push(score);
+    saveScores();
+    updateHighScoreList(); // Оновлюємо список найкращих результатів
+    updateLowScoreList(); // Оновлюємо список найгірших результатів
+    var answer = confirm("Game Over. Your Score: " + score + ". Do you want to play again?");
+    if (answer) {
+        resetGame();
+        draw();
+    }
+}
+
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawBall();
+        drawPaddle();
+        drawObstacle();
+        drawScore();
+        collisionDetection();
+
+        if (x + dx > canvas.width - ballRadius || x + dx < ballRadius) {
+            dx = -dx;
+        }
+        if (y + dy < ballRadius) {
+            dy = -dy;
+        } else if (y + dy > canvas.height - ballRadius) {
+            if (x > paddleX && x < paddleX + paddleWidth) {
+                dy = -dy;
+            } else {
+                gameOver();
+                return;
+            }
+        }
+
+        if (rightPressed && paddleX < canvas.width - paddleWidth) {
+            paddleX += 7;
+        } else if (leftPressed && paddleX > 0) {
+            paddleX -= 7;
+        }
+
+        x += dx;
+        y += dy;
+
+        requestAnimationFrame(draw);
+    }
+
+    loadScores();
+
+    var obstacleHit = false; // Додаємо флаг для відстеження зіткнення з перешкодою
+
+function collisionDetection() {
+    if (x > paddleX && x < paddleX + paddleWidth && y + dy > canvas.height - paddleHeight - ballRadius) {
+        dy = -dy;
+        score++;
+    }
+    if (!obstacleHit && x + dx > obstacleX && x + dx < obstacleX + obstacleWidth && y + dy < obstacleY + obstacleHeight && y + dy > obstacleY) {
+        dy = -dy;
+        obstacleHit = true; // Встановлюємо флаг, що зіткнення відбулося
+        score += 1; // Додаємо бали
+    }
+}
+
+
+
+
+
+</script>
+    <script src="index.js"></script>
+</body>
+</html>

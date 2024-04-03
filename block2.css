@@ -1,0 +1,353 @@
+body {
+   font-family: 'Montserrat', sans-serif;
+   margin: 0;
+   padding: 0;
+}
+
+#test-container {
+   max-width: 600px;
+   margin: 0 auto;
+   padding: 20px;
+   border: 2px solid #fff;
+   border-radius: 10px;
+   box-shadow: 0 0 10px #14505C;
+   margin-bottom: 30px;
+   margin-top: 30px;
+}
+
+.question {
+   margin-bottom: 20px;
+}
+
+.answer {
+   margin-left: 10px;
+}
+
+#submit-btn {
+   display: block;
+   margin: 20px auto; /* Вирівнюємо кнопку по центру */
+   text-decoration: none;
+   color: #000000;
+   border: 1px solid #000000;
+   padding: 20px 34px;
+   font-size: 13px;
+   background: transparent;
+   position: relative;
+   cursor: pointer;
+}
+
+#submit-btn:hover {
+   border: 1px solid var(--main-color);
+   background: #14505C;
+   color: #fff;
+   font-weight: bold;
+   transition: 1s;
+}
+
+#result {
+   font-weight: bold;
+   text-align: center;
+   margin-top: 20px;
+}
+/* Стилізація радіокнопок */
+input[type="radio"] {
+   -webkit-appearance: none; /* Забираємо стандартний стиль */
+   -moz-appearance: none;
+   appearance: none;
+   width: 15px; /* Задаємо ширину */
+   height: 15px; /* Задаємо висоту */
+   background-color: transparent; /* Прозорий фон */
+   border: 1px solid hsla(0, 0%, 0%); /* Рамка */
+   border-radius: 50%; /* Кругла форма */
+   cursor: pointer; /* Курсор вказівника */
+}
+
+/* Задаємо стиль для радіокнопки, коли вона вибрана */
+input[type="radio"]:checked {
+   background-color: #14505C; /* Колір фону при виборі */
+}
+
+.correct {
+   color: rgb(162, 255, 162);
+   font-weight: bold;
+}
+
+.incorrect {
+   color: rgb(255, 181, 181);
+   font-weight: bold;
+}
+@media only screen and (max-width: 600px) {
+   /* Додавання відступу 5px з усіх сторін */
+   form {
+       margin: 5px;
+   }
+}
+
+canvas {
+   border: 1px solid black;
+   display: block;
+   margin: 0 auto;
+}
+#gameCanvas {
+   display: block;
+   margin: 0 auto;
+   border: 1px solid black;
+   margin-bottom: 50px;
+}
+
+#startGame, #highScores, #lowScores {
+   text-align: center;
+   margin-bottom: 20px;
+}
+
+#highScores, #lowScores {
+   border-top: 2px solid black;
+   padding-top: 10px;
+}
+
+#highScores h2, #lowScores h2 {
+   margin-top: 0;
+}
+
+#highScoreList, #lowScoreList {
+   list-style: none;
+   padding-left: 0;
+}
+
+#highScoreList li, #lowScoreList li {
+   margin-bottom: 5px;
+}
+#button-container {
+   text-align: center; /* Вирівнюємо текст по центру */
+}
+
+#startGame {
+   display: inline-block;
+   text-decoration: none;
+   color: #000000;
+   border: 1px solid #000000;
+   padding: 12px 34px;
+   font-size: 13px;
+   background: transparent;
+   position: relative;
+   cursor: pointer;
+}
+
+#startGame:hover {
+   border: 1px solid var(--main-color);
+   background: #14505C;
+   color: #fff;
+   font-weight: bold;
+   transition: 1s;
+}
+
+*{
+   margin: 0;
+   padding: 0;
+   font-family: "Montserrat", sans-serif;
+   font-optical-sizing: auto;
+   font-style: normal;
+ }
+h2 {
+   text-align: center;
+   margin-top: 30px;
+}
+
+form {
+   max-width: 600px;
+   margin: 0 auto;
+   margin-bottom: 30px;
+   background-color: #fff;
+   padding: 20px;
+   border-radius: 10px;
+   box-shadow: 0 0 10px #14505C;
+}
+
+ol {
+   list-style: none;
+   padding: 0;
+}
+
+li {
+   margin-bottom: 30px;
+}
+
+label {
+   font-weight: medium;
+}
+
+input[type="range"] {
+   width: 100%;
+}
+
+textarea, select, input[type="text"], input[type="email"], input[type="number"], input[type="date"] {
+   width: 100%;
+   padding: 10px;
+   border: 1px solid #ccc;
+   border-radius: 5px;
+   box-sizing: border-box;
+}
+
+fieldset {
+   border: none;
+   padding: 0;
+   margin: 0;
+}
+
+input[type="radio"], input[type="checkbox"] {
+   margin-right: 5px;
+   margin-bottom: 5px;
+}
+
+
+input[type="radio"]:checked + label,
+input[type="checkbox"]:checked + label{
+   font-weight: medium;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+select,
+textarea,
+input[type="checkbox"],
+input[type="radio"],
+button,
+input[type="date"]{
+   border-color: #ccc;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus,
+input[type="date"]:focus {
+   background-color: hsla(51, 100%, 63%, 0.212);
+}
+/* Змінюємо колір після вибору чекбокса або радіокнопки */
+input[type="checkbox"]:checked + label,
+input[type="radio"]:checked + label,
+input[type="date"]:checked + label {
+   color: #14505C; /* Зміна кольору тексту після вибору */
+}
+
+/* Змінюємо колір після вибору галочки чекбокса або радіокнопки */
+input[type="checkbox"]:checked + label::before,
+input[type="radio"]:checked + label::before,
+input[type="date"]:checked + label::before {
+   background-color: #14505C; /* Зміна кольору фону після вибору */
+   border-color: #14505C; /* Зміна кольору рамки після вибору */
+}
+
+/* Стилізація чекбоксів */
+input[type="checkbox"] {
+   -webkit-appearance: none; /* Забираємо стандартний стиль */
+   -moz-appearance: none;
+   appearance: none;
+   width: 15px; /* Задаємо ширину */
+   height: 15px; /* Задаємо висоту */
+   background-color: transparent; /* Прозорий фон */
+   border: 1px solid  hsla(0, 0%, 0%); /* Рамка */
+   border-radius: 4px; /* Округлені кути */
+   cursor: pointer; /* Курсор вказівника */
+}
+
+/* Задаємо стиль для чекбокса, коли він вибраний */
+input[type="checkbox"]:checked {
+   background-color:#14505C; /* Колір фону при виборі */
+}
+
+/* Стилізація радіокнопок */
+input[type="radio"] {
+   -webkit-appearance: none; /* Забираємо стандартний стиль */
+   -moz-appearance: none;
+   appearance: none;
+   width: 15px; /* Задаємо ширину */
+   height: 15px; /* Задаємо висоту */
+   background-color: transparent; /* Прозорий фон */
+   border: 1px solid hsla(0, 0%, 0%); /* Рамка */
+   border-radius: 50%; /* Кругла форма */
+   cursor: pointer; /* Курсор вказівника */
+}
+
+/* Задаємо стиль для радіокнопки, коли вона вибрана */
+input[type="radio"]:checked {
+   background-color: #14505C; /* Колір фону при виборі */
+}
+/* Змінюємо колір повзунка */
+input[type="range"] {
+   -webkit-appearance: none; /* Забираємо стандартний стиль повзунка */
+   appearance: none;
+   width: 100%;
+   height: 10px;
+   background: rgba(128, 128, 128, 0.274); /* Фоновий колір */
+   border-radius: 5px; /* Округлені кути */
+}
+/* Змінюємо колір повзунка при натисканні */
+input[type="range"]:hover {
+   background: #14505c3c; /* Фоновий колір при наведенні */
+}
+/* Змінюємо колір повзунка при перетягуванні */
+input[type="range"]::-webkit-slider-thumb {
+   -webkit-appearance: none; /* Забираємо стандартний стиль повзунка */
+   appearance: none;
+   width: 20px;
+   height: 20px;
+   background: #14505C; /* Колір повзунка */
+   border-radius: 50%; /* Круглий повзунок */
+   cursor: pointer; /* Курсор вказівника */
+}
+form {
+   display: flex;
+   flex-direction: column; /* Розташовує елементи у стовпчик */
+   align-items: center; /* Вирівнює елементи по центру горизонтально */
+}
+button{
+   display: inline-block;
+   text-decoration: none;
+   color: #000000;
+   border: 1px solid #000000;
+   padding: 12px 34px;
+   font-size: 13px;
+   background: transparent;
+   position: relative;
+   cursor: pointer;
+}
+button:hover{
+   border: 1px solid var(--main-color);
+   background: #14505C;
+   color: #fff;
+   font-weight: bold;
+   transition: 1s;
+}
+#filterResults {
+   padding: 20px; /* відступ від внутрішнього контенту */
+   margin: 0 auto; /* автоматичне вирівнювання по центру */
+   max-width: 600px; /* максимальна ширина контейнера */
+   text-align: left; /* вирівнювання тексту по лівому краю */
+}
+/* Стилі для рамки */
+#output {
+   white-space: pre-line; /* Це дозволить переносити рядки */
+   border: 1px solid black; /* Тут можна налаштувати стиль рамки */
+   padding: 10px; /* Внутрішній відступ рамки */
+ }
+#filterButtons {
+   text-align: center;
+}
+
+/* Додаткові стилі для результуючих даних */
+.result-item {
+   border: 1px solid #ccc;
+   padding: 10px;
+   margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+   /* Додавання відступу 5px з усіх сторін */
+   form {
+       margin: 5px;
+   }
+}
+

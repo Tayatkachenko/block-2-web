@@ -1,0 +1,111 @@
+{
+   "testName": "Тест про нашу агенцію",
+   "questions": [
+     {
+       "question": "В якому році Ви вперше відвідвли іншу країну?",
+       "answers": [
+         {
+           "answer": "1837",
+           "isCorrect": true
+         },
+         {
+           "answer": "1900",
+           "isCorrect": false
+         },
+         {
+           "answer": "2001",
+           "isCorrect": false
+         },
+         {
+           "answer": "2019",
+           "isCorrect": false
+         }
+       ]
+     },
+     {
+       "question": "Які види активного відпочинку ви вважаєте найцікавішими під час подорожі?",
+       "answers": [
+         {
+           "answer": "Піші прогулянки та велопрогулянки",
+           "isCorrect": true
+         },
+         {
+           "answer": "Водні види спорту",
+           "isCorrect": false
+         },
+         {
+           "answer": "Гірські вишини",
+           "isCorrect": false
+         },
+         {
+           "answer": "Екскурсії та культурні заходи",
+           "isCorrect": false
+         }
+       ]
+     },
+     {
+       "question": "Які місця ви порекомендували б своїм друзям для відвідування?",
+       "answers": [
+         {
+           "answer": "Мачу-Пікчу, Перу",
+           "isCorrect": false
+         },
+         {
+           "answer": "Санторіні, Греція",
+           "isCorrect": false
+         },
+         {
+           "answer": "Кападокія, Туреччина",
+           "isCorrect": false
+         },
+         {
+           "answer": "Мачу-Пікчу, Італія",
+           "isCorrect": true
+         }
+       ]
+     },
+     {
+       "question": "Яке місто відоме як Місто кохання",
+       "answers": [
+         {
+           "answer": "Париж",
+           "isCorrect": true
+         },
+         {
+           "answer": "Рим",
+           "isCorrect": false
+         },
+         {
+           "answer": "Венеція",
+           "isCorrect": false
+         },
+         {
+           "answer": "Прага",
+           "isCorrect": false
+         }
+       ]
+     },
+     {
+       "question": "Яке озеро є найбільшим за площею у світі?",
+       "answers": [
+         {
+           "answer": "Каспійське море",
+           "isCorrect": false
+         },
+         {
+           "answer": "Велике солоне озеро",
+           "isCorrect": false
+         },
+         {
+           "answer": "Байкал",
+           "isCorrect": true
+         },
+         {
+           "answer": "Озеро Вікторія",
+           "isCorrect": false
+         }
+       ]
+     }
+   ]
+ }
+ 
